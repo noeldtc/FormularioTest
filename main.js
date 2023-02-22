@@ -7,8 +7,7 @@ function myFunction() {
   
   let lexOrigin;  
 
-  //Se asigna que si llega un mensaje con "message" la funcion de respuesta es handleMessage
-  window.addEventListener("message", handle , false);
+
   
   //Un alert normal
   alert("The form was submitted " + nameVal + " " + lastNameVal);
@@ -18,6 +17,8 @@ function myFunction() {
   console.log("Envia mensaje de hijo a padre")
   window.parent.postMessage(message, "*");
   
+  //Se asigna que si llega un mensaje con "message" la funcion de respuesta es handleMessage
+  window.addEventListener("message", handle);
 }
 
 function handle(event){
