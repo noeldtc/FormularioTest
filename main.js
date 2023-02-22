@@ -8,7 +8,7 @@ function myFunction() {
   let lexOrigin;  
 
   //Se asigna que si llega un mensaje con "message" la funcion de respuesta es handleMessage
-  window.addEventListener("message", this.handle.bind(this) , false);
+  window.addEventListener("message", handle , false);
   
   //Un alert normal
   alert("The form was submitted " + nameVal + " " + lastNameVal);
