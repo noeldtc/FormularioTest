@@ -16,7 +16,7 @@ function myFunction() {
   //Se envia un mensaje a la ventana padre con el mensaje y 
   // el origen
   console.log("Envia mensaje de hijo a padre")
-  window.parent.postMessage(message, lexOrigin);
+  window.parent.postMessage(message, "*");
   
 }
 
