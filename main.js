@@ -8,19 +8,19 @@ function myFunction() {
   let lexOrigin;  
 
   //Se asigna que si llega un mensaje con "message" la funcion de respuesta es handleMessage
-  window.addEventListener("message", handleMessage , false);
+  window.addEventListener("message", handle , false);
   
   //Un alert normal
   alert("The form was submitted " + nameVal + " " + lastNameVal);
 
   //Se envia un mensaje a la ventana padre con el mensaje y 
-  // el mensaje de vuelta (inicialmente undefined)
+  // el origen
   console.log("Envia mensaje de hijo a padre")
   window.parent.postMessage(message, lexOrigin);
   
 }
 
-function handleMessage(event){
+function handle(event){
   console.log('Origin '+ event.origin);
   console.log('data '+ event.data);
   lexOrigin =  event.data;
