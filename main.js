@@ -1,29 +1,28 @@
 
 
 function myFunction() {
-//let lexOrigin = "https://scacorp--scadev3.sandbox.lightning.force.com/lightning/action/quick/Lead.POC_Tarificar?objectApiName&context=RECORD_DETAIL&recordId=00Q1x000006zvGhEAI&backgroundContext=%2Flightning%2Fr%2FLead%2F00Q1x000006zvGhEAI%2Fview";
+  let nameVal = document.getElementById("fname").value;
+  let lastNameVal = document.getElementById("lname").value;
+  let message = "Este es el nombre " +nameVal + " " +  lastNameVal;
+  
+  let lexOrigin;  
 
-    let nameVal = document.getElementById("fname").value;
-    let lastNameVal = document.getElementById("lname").value;
-    let message = "Este es el nombre " +nameVal + " " +  lastNameVal;
-    
-    let lexOrigin;  
-    window.addEventListener("message", handleMessage , false);
-    
-    alert("The form was submitted " + nameVal + " " + lastNameVal);
-            window.parent.postMessage(message, lexOrigin);
-  }
+  //Se asigna que si llega un mensaje con "message" la funcion de respuesta es handleMessage
+  window.addEventListener("message", handleMessage , false);
+  
+  //Un alert normal
+  alert("The form was submitted " + nameVal + " " + lastNameVal);
 
-  /*if (window.addEventListener) {
-    // For standards-compliant web browsers
-    window.addEventListener("message", handleMessage, false);
-  } else {
-    window.attachEvent("onmessage", handleMessage);
-  }*/
+  //Se envia un mensaje a la ventana padre con el mensaje y 
+  // el mensaje de vuelta (inicialmente undefined)
+  console.log("Envia mensaje de hijo a padre")
+  window.parent.postMessage(message, lexOrigin);
+  
+}
 
-  function handleMessage(event){
-            console.log('Origin '+ event.origin);
-            console.log('data '+ event.data);
-            lexOrigin =  event.data;
+function handleMessage(event){
+  console.log('Origin '+ event.origin);
+  console.log('data '+ event.data);
+  lexOrigin =  event.data;
 
-  }
+}
